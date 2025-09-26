@@ -1,0 +1,206 @@
+body {
+  margin: 0;
+  max-width: 100%;
+  background: #f9f9f9;
+  font-family: 'Open Sans', sans-serif;
+}
+
+/* ===== Header ===== */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.header-logo {
+  flex: 1;
+}
+
+.header-navigation {
+  flex: 2;
+}
+
+a {
+  text-decoration: none;
+}
+
+.header-navigation ul {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+.menu-item {
+  padding: 10px;
+  font-weight: bold;
+  color: black;
+}
+
+.menu-link {
+  position: relative;
+  transition: 0.3s;
+}
+
+.menu-link:hover {
+  transform: scale(1.05);
+  color: darkgreen;
+}
+
+/* ===== Responsive Menu ===== */
+.menu-toggle {
+  display: none;
+  font-size: 20px;
+  cursor: pointer;
+  align-items: center;
+  gap: 5px;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .header {
+    justify-content: space-between;
+    padding: 0 15px;
+  }
+
+  .header-navigation ul {
+    display: none;
+    flex-direction: column;
+    background: white;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 220px;
+    border: 1px solid #ddd;
+    padding: 10px;
+  }
+
+  .header-navigation ul.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+}
+
+/* ===== Về Chúng Tôi ===== */
+.about-section {
+  max-width: 1000px;
+  margin: 50px auto;
+  padding: 20px 25px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+  line-height: 1.8;
+  color: #333;
+}
+
+.about-section h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #00894d;
+}
+
+.about-section p {
+  margin-bottom: 15px;
+  text-align: justify;
+}
+
+.about-section ul {
+  margin: 15px 0 20px 25px;
+}
+
+.about-section ul li {
+  margin-bottom: 10px;
+  list-style-type: disc;
+  font-weight: bold;
+  color: #444;
+}
+
+.about-section h3 {
+  font-size: 20px;
+  margin-top: 25px;
+  margin-bottom: 15px;
+  color: #222;
+}
+
+.about-section .contact-info {
+  margin-top: 20px;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.about-section .contact-info p {
+  margin-bottom: 8px;
+}
+
+/* ===== Footer ===== */
+.footer {
+  background: #e4f7eb;
+  padding: 40px 20px 20px;
+  color: #333;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-column h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #00894d;
+}
+
+.footer-column p,
+.footer-column a {
+  font-size: 14px;
+  color: #333;
+  text-decoration: none;
+  line-height: 1.6;
+}
+
+.footer-column a:hover {
+  color: #00894d;
+  text-decoration: underline;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 8px;
+}
+
+.btn-hotline {
+  display: inline-block;
+  margin-top: 10px;
+  background: #d32f2f;
+  color: #fff;
+  padding: 8px 15px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+.btn-hotline:hover {
+  background: #a20000;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  padding-top: 15px;
+  border-top: 1px solid #ccc;
+  font-size: 13px;
+  color: #666;
+}
