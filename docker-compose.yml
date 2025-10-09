@@ -7,5 +7,5 @@ services:
       dockerfile: Dockerfile
     container_name: nhaxe_nginx
     ports:
-      - "8080:80"   # Truy cập tại http://localhost:8080
+      - "80:80"   # Truy cập tại http://localhost:8080
     restart: unless-stopped
