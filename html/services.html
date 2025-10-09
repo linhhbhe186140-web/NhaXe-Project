@@ -171,30 +171,62 @@
     <!-- ===== FOOTER ===== -->
     <footer class="footer">
         <div class="footer-container">
+            <!-- Cột 1 -->
             <div class="footer-column">
                 <h3>Nhà Xe Minh Châu</h3>
-                <p>Dịch vụ vận chuyển uy tín - nhanh chóng - an toàn.</p>
+                <p>Nhà Xe Minh Châu chuyên cung cấp xe ghép, ghép xe Hà Nam, đi tỉnh, đi sân bay giá rẻ. Tài xế nhiều năm
+                    kinh nghiệm, vui vẻ và nhiệt tình với khách.</p>
+                <a href="tel:0972028968" class="btn-hotline">📞 Gọi ngay</a>
             </div>
+
+            <!-- Cột 2 -->
             <div class="footer-column">
-                <h3>Liên hệ</h3>
-                <p>Địa chỉ: Hà Nam - Hà Nội</p>
-                <p>Điện thoại: 0123.456.789</p>
-                <a href="tel:0123456789" class="btn-hotline">Gọi Ngay</a>
+                <h3>Thông Tin Liên Hệ</h3>
+                <p>Địa chỉ: Văn phòng Lê Lợi, TP. Phủ Lý, Hà Nam</p>
+                <p>Hotline: <a href="tel:0972028968">01234.567.89</a></p>
+                <p>Email: <a href="mailto:nhaxeminhchau@gmail.com">vnai2203@gmail.com</a></p>
             </div>
+
+            <!-- Cột 3 -->
             <div class="footer-column">
-                <h3>Liên kết nhanh</h3>
+                <h3>Dịch Vụ Của Chúng Tôi</h3>
                 <ul>
-                    <li><a href="index.html">Trang chủ</a></li>
-                    <li><a href="services.html">Dịch vụ</a></li>
-                    <li><a href="contact.html">Liên hệ</a></li>
-                    <li><a href="about.html">Về chúng tôi</a></li>
+                    <li><a href="#">Trang chủ</a></li>
+                    <li><a href="#">Dịch Vụ Của Chúng Tôi</a></li>
+                    <li><a href="#">Liên hệ với chúng tôi</a></li>
+                    <li><a href="#">Về chúng tôi</a></li>
+                </ul>
+            </div>
+
+            <!-- Cột 4 -->
+            <div class="footer-column">
+                <h3>Chính Sách Dịch Vụ</h3>
+                <ul>
+                    <li><a href="#">Chính Sách Bảo Mật Thông Tin</a></li>
+                    <li><a href="#">Chính Sách Hủy Dịch Vụ & Hoàn Tiền</a></li>
+                    <li><a href="#">Hình Thức Thanh Toán</a></li>
                 </ul>
             </div>
         </div>
+
         <div class="footer-bottom">
-            <p>&copy; 2025 Nhà Xe Minh Châu. All rights reserved.</p>
+            <p>Copyright © Nhà Xe Ghép Hà Nam - Hà Nội | 2022</p>
         </div>
     </footer>
+    <script>
+    // filepath: c:\Users\admin\Documents\GitHub\test\NhaXe-Project\html\index.html
+    // ...existing code...
+    document.addEventListener('DOMContentLoaded', function() {
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navUl = document.querySelector('.header-navigation ul');
+        if (menuToggle && navUl) {
+            menuToggle.addEventListener('click', function() {
+                navUl.classList.toggle('active');
+            });
+        }
+    });
+    // ...existing code...
+</script>
 </body>
 
 </html>

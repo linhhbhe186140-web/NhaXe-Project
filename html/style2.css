@@ -233,3 +233,18 @@ a {
   font-size: 13px;
   color: #666;
 }
+
+@media (max-width: 768px) {
+    .header-logo h1 {
+        font-size: 18px;
+        white-space: nowrap;
+        overflow: none;
+        text-overflow: ellipsis;
+        max-width: 120px;
+        margin: 0;
+    }
+    .header-logo {
+        flex: 0 1 auto;
+        min-width: 0;
+    }
+}

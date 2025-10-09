@@ -229,9 +229,9 @@
             <!-- Cột 2 -->
             <div class="footer-column">
                 <h3>Thông Tin Liên Hệ</h3>
-                <p>Địa chỉ: Văn phòng Lê Lợi, TP. Phủ Lý, Hà Nam</p>
-                <p>Hotline: <a href="tel:012345678">01234.567.89</a></p>
-                <p>Email: <a href="mailto:vnai2203@gmail.com">vnai2203@gmail.com</a></p>
+                <p>Địa chỉ: TP. Phủ Lý, Ninh Bình</p>
+                <p>Hotline: <a href="tel:0972028968">0972.028.968</a></p>
+                <p>Email: <a href="mailto:nhaxeminhchau@gmail.com">nhaxeminhchau@gmail.com</a></p>
             </div>
 
             <!-- Cột 3 -->
@@ -261,7 +261,20 @@
         </div>
     </footer>
 
-
+<script>
+    // filepath: c:\Users\admin\Documents\GitHub\test\NhaXe-Project\html\index.html
+    // ...existing code...
+    document.addEventListener('DOMContentLoaded', function() {
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navUl = document.querySelector('.header-navigation ul');
+        if (menuToggle && navUl) {
+            menuToggle.addEventListener('click', function() {
+                navUl.classList.toggle('active');
+            });
+        }
+    });
+    // ...existing code...
+</script>
 </body>
 <script>
     function navigateTo(page) {
