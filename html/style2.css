@@ -71,24 +71,47 @@ a {
     padding: 0 15px;
   }
 
+  /* animated mobile menu: use max-height so it can transition smoothly */
   .header-navigation ul {
-    display: none;
+    max-height: 0;
+    overflow: hidden;
     flex-direction: column;
     background: white;
     position: absolute;
     top: 60px;
     right: 0;
-    width: 220px;
+    width: 240px;
     border: 1px solid #ddd;
-    padding: 10px;
+    padding: 0 10px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    transition: max-height 0.36s ease, opacity 0.36s ease, transform 0.32s ease;
+    opacity: 0;
+    transform: translateY(-8px);
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
   }
 
   .header-navigation ul.active {
-    display: flex;
+    max-height: 1000px; /* large enough to show content */
+    opacity: 1;
+    transform: translateY(0);
+    padding: 10px;
   }
 
   .menu-toggle {
     display: flex;
+  }
+
+  /* menu icon animation */
+  .menu-toggle i {
+    transition: transform 0.28s ease, color 0.18s ease;
+    transform-origin: center;
+  }
+  .menu-toggle.open i {
+    transform: rotate(90deg);
+    color: #4CAF50;
   }
 }
 
@@ -247,4 +270,38 @@ a {
         flex: 0 1 auto;
         min-width: 0;
     }
+}
+
+/* ===== Header logo shared styles (consistent with style.css) ===== */
+.header-logo {
+  /* keep logo left-aligned and prevent stretching */
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+}
+
+.header-logo a {
+  display: inline-flex;
+  align-items: center;
+}
+
+.header-logo img {
+  height: 120px; /* desktop */
+  width: auto;
+  display: block;
+  border-radius: 8px;
+  transition: transform 0.18s ease, opacity 0.18s ease;
+}
+
+.header-logo img:hover {
+  transform: scale(1.03);
+  opacity: 0.95;
+}
+
+@media (max-width: 768px) {
+  .header-logo img {
+    height: 80px; /* mobile */
+  }
 }

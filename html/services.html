@@ -18,7 +18,7 @@
     <!-- ===== HEADER ===== -->
     <div class="header">
         <div class="header-logo">
-            <h1>Nhà Xe Minh Châu</h1>
+            <a href="index.html"><img src="./1-removebg-preview.png" alt="logo"></a>
         </div>
         <div class="header-navigation">
             <ul>
@@ -148,8 +148,7 @@
         </div>
         <div class="services-grid">
             <div class="service-card">
-                <img src="anh1.jpg"
-                    alt="Xe hợp đồng">
+                <img src="anh1.jpg" alt="Xe hợp đồng">
                 <h3>Xe Hợp Đồng</h3>
                 <p>Đặt xe hợp đồng theo nhu cầu cá nhân, gia đình hoặc doanh nghiệp.</p>
             </div>
@@ -174,16 +173,17 @@
             <!-- Cột 1 -->
             <div class="footer-column">
                 <h3>Nhà Xe Minh Châu</h3>
-                <p>Nhà Xe Minh Châu chuyên cung cấp xe ghép, ghép xe Hà Nam, đi tỉnh, đi sân bay giá rẻ. Tài xế nhiều năm
+                <p>Nhà Xe Minh Châu chuyên cung cấp xe ghép, ghép xe Hà Nam, đi tỉnh, đi sân bay giá rẻ. Tài xế nhiều
+                    năm
                     kinh nghiệm, vui vẻ và nhiệt tình với khách.</p>
-                <a href="tel:012345678" class="btn-hotline">📞 Gọi ngay</a>
+                <a href="tel:0976557789" class="btn-hotline">📞 Gọi ngay</a>
             </div>
 
             <!-- Cột 2 -->
             <div class="footer-column">
                 <h3>Thông Tin Liên Hệ</h3>
                 <p>Địa chỉ: TP. Phủ Lý, Ninh Bình</p>
-                <p>Hotline: <a href="tel:0972028968">0972.028.968</a></p>
+                <p>Hotline: <a href="tel:0976557789">0976.557.789</a></p>
                 <p>Email: <a href="mailto:nhaxeminhchau@gmail.com">nhaxeminhchau@gmail.com</a></p>
             </div>
 
@@ -210,23 +210,30 @@
         </div>
 
         <div class="footer-bottom">
-            <p>Copyright © Nhà Xe Ghép Hà Nam - Hà Nội | 2022</p>
+            <p>Copyright © Nhà Xe Ghép Hà Nam - Hà Nội | 2025</p>
         </div>
     </footer>
     <script>
-    // filepath: c:\Users\admin\Documents\GitHub\test\NhaXe-Project\html\index.html
-    // ...existing code...
-    document.addEventListener('DOMContentLoaded', function() {
-        const menuToggle = document.querySelector('.menu-toggle');
-        const navUl = document.querySelector('.header-navigation ul');
-        if (menuToggle && navUl) {
-            menuToggle.addEventListener('click', function() {
-                navUl.classList.toggle('active');
+        // filepath: c:\Users\admin\Documents\GitHub\test\NhaXe-Project\html\index.html
+        // ...existing code...
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navUl = document.querySelector('.header-navigation ul');
+            if (menuToggle && navUl) {
+                menuToggle.addEventListener('click', function () {
+                    navUl.classList.toggle('active');
+                    menuToggle.classList.toggle('open');
+                });
+            }
+            document.addEventListener('click', function(e) {
+                if (!menuToggle.contains(e.target) && !navUl.contains(e.target)) {
+                    navUl.classList.remove('active');
+                    menuToggle.classList.remove('open');
+                }
             });
-        }
-    });
-    // ...existing code...
-</script>
+        });
+        // ...existing code...
+    </script>
 </body>
 
 </html>

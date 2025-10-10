@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Về Chúng Tôi</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -19,7 +19,7 @@
 <body>
     <div class="header">
         <div class="header-logo">
-            <h1>Nhà Xe Minh Châu</h1>
+            <a href="index.html"><img src="./1-removebg-preview.png" alt="logo"></a>
         </div>
         <div class="header-navigation">
             <ul>
@@ -153,7 +153,7 @@
             Lái xe an toàn đón trả đúng điểm.
         </p>
     </div>
-    <!-- ===== Các Tuyến Đi Xe Phổ Biến ===== -->
+    
     <div class="popular-routes">
         <h2>Các Tuyến Đi Xe ghép Hà Nam - Hà Nội Phổ Biến</h2>
         <p>Sẵn sàng phục vụ nhu cầu đi lại, du lịch của bạn. Đặt trước càng sớm giá càng rẻ.</p>
@@ -257,7 +257,7 @@
         </div>
 
         <div class="footer-bottom">
-            <p>Copyright © Nhà Xe Ghép Hà Nam - Hà Nội | 2022</p>
+            <p>Copyright © Nhà Xe Ghép Hà Nam - Hà Nội | 2025</p>
         </div>
     </footer>
 
@@ -270,8 +270,15 @@
         if (menuToggle && navUl) {
             menuToggle.addEventListener('click', function() {
                 navUl.classList.toggle('active');
+                menuToggle.classList.toggle('open');
             });
         }
+        document.addEventListener('click', function(e) {
+            if (!menuToggle.contains(e.target) && !navUl.contains(e.target)) {
+                navUl.classList.remove('active');
+                menuToggle.classList.remove('open');
+            }
+        });
     });
     // ...existing code...
 </script>

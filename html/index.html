@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Trang Chủ</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -19,7 +19,7 @@
 <body>
     <div class="header">
         <div class="header-logo">
-            <h1>Nhà Xe Minh Châu</h1>
+            <a href="index.html"><img src="./1-removebg-preview.png" alt="logo"></a>
         </div>
         <div class="header-navigation">
             <ul>
@@ -49,8 +49,8 @@
                 Cam kết giá rẻ nhất - Gọi ngay là có xe</p>
             <div class="tdm-buttons-wrap">
 
-                <div class="tds-button"><a href="tel:0972028968" class=""><span class="tdm-btn-text">Call:
-                            0972.028.968</span><i class=""></i></a>
+                <div class="tds-button"><a href="tel:0976557789" class=""><span class="tdm-btn-text">Call:
+                            0976.557.789</span><i class=""></i></a>
                 </div>
             </div>
         </div>
@@ -223,14 +223,14 @@
                 <h3>Nhà Xe Minh Châu</h3>
                 <p>Nhà Xe Minh Châu chuyên cung cấp xe ghép, ghép xe Hà Nam, đi tỉnh, đi sân bay giá rẻ. Tài xế nhiều năm
                     kinh nghiệm, vui vẻ và nhiệt tình với khách.</p>
-                <a href="tel:012345678" class="btn-hotline">📞 Gọi ngay</a>
+                <a href="tel:0976557789" class="btn-hotline">📞 Gọi Ngay</a>
             </div>
 
             <!-- Cột 2 -->
             <div class="footer-column">
                 <h3>Thông Tin Liên Hệ</h3>
                 <p>Địa chỉ: TP. Phủ Lý, Ninh Bình</p>
-                <p>Hotline: <a href="tel:0972028968">0972.028.968</a></p>
+                <p>Hotline: <a href="tel:0976557789">0976.557.789</a></p>
                 <p>Email: <a href="mailto:nhaxeminhchau@gmail.com">nhaxeminhchau@gmail.com</a></p>
             </div>
 
@@ -257,15 +257,15 @@
         </div>
 
         <div class="footer-bottom">
-            <p>Copyright © Nhà Xe Ghép Hà Nam - Hà Nội | 2022</p>
+            <p>Copyright © Nhà Xe Ghép Hà Nam - Hà Nội | 2025</p>
         </div>
     </footer>
 
     <!-- Nút hotline nổi góc phải dưới -->
-<a href="tel:0972028968" class="hotline-fixed">📞 Gọi ngay</a>
-<a href="https://zalo.me/0972028968" class="zalo-fixed" target="_blank">
+<a href="tel:0976557789" class="hotline-fixed">📞 0976.557.789</a>
+<a href="https://zalo.me/0976557789" class="zalo-fixed" target="_blank">
     <img src="zaloicon.png" alt="Zalo" style="width:28px;height:28px;vertical-align:middle;margin-right:8px;">
-    Kết nối Zalo
+    Kết nối Zalo...
 </a>
 
 <script>
@@ -277,8 +277,16 @@
         if (menuToggle && navUl) {
             menuToggle.addEventListener('click', function() {
                 navUl.classList.toggle('active');
+                menuToggle.classList.toggle('open');
             });
         }
+        // Close menu on outside click (mobile)
+        document.addEventListener('click', function(e) {
+            if (!menuToggle.contains(e.target) && !navUl.contains(e.target)) {
+                navUl.classList.remove('active');
+                menuToggle.classList.remove('open');
+            }
+        });
     });
     // ...existing code...
 </script>
@@ -289,7 +297,7 @@
         window.location.href = page;
     }
     function clickToCall() {
-    window.location.href = "tel:0972028968";
+    window.location.href = "tel:0976557789";
     }
 </script>
 
