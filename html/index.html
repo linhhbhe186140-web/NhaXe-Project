@@ -16,6 +16,7 @@
 
 
 
+
 <body>
     <div class="header">
         <div class="header-logo">
@@ -30,7 +31,7 @@
                 <li class="menu-item"><a href="#" class="menu-link" onclick="navigateTo('contact.html')">Liên hệ với
                         chúng tôi</a></li>
                 <li class="menu-item"><a href="#" class="menu-link" onclick="navigateTo('about.html')">Về chúng tôi</a>
-                    
+
                 </li>
             </ul>
         </div>
@@ -188,8 +189,7 @@
 
             <!-- Card 4 -->
             <div class="route-card">
-                <img src="anh3.jpg"
-                    alt="Lý Nhân - Hà Nội">
+                <img src="anh3.jpg" alt="Lý Nhân - Hà Nội">
                 <h3>Lý Nhân ↔ Hà Nội</h3>
                 <p>Phục vụ 24/7 có mặt sau 5 phút, chuyên chạy chuyến đường dài đi thì giá phải chăng.</p>
                 <div class="rating">★★★★★</div>
@@ -221,7 +221,8 @@
             <!-- Cột 1 -->
             <div class="footer-column">
                 <h3>Nhà Xe Minh Châu</h3>
-                <p>Nhà Xe Minh Châu chuyên cung cấp xe ghép, ghép xe Hà Nam, đi tỉnh, đi sân bay giá rẻ. Tài xế nhiều năm
+                <p>Nhà Xe Minh Châu chuyên cung cấp xe ghép, ghép xe Hà Nam, đi tỉnh, đi sân bay giá rẻ. Tài xế nhiều
+                    năm
                     kinh nghiệm, vui vẻ và nhiệt tình với khách.</p>
                 <a href="tel:0976557789" class="btn-hotline">📞 Gọi Ngay</a>
             </div>
@@ -262,43 +263,162 @@
     </footer>
 
     <!-- Nút hotline nổi góc phải dưới -->
-<a href="tel:0976557789" class="hotline-fixed">📞 0976.557.789</a>
-<a href="https://zalo.me/0976557789" class="zalo-fixed" target="_blank">
-    <img src="zaloicon.png" alt="Zalo" style="width:28px;height:28px;vertical-align:middle;margin-right:8px;">
-    Kết nối Zalo...
-</a>
+    <a href="tel:0976557789" class="hotline-fixed">📞 0976.557.789</a>
+    <a href="https://zalo.me/0976557789" class="zalo-fixed" target="_blank">
+        <img src="zaloicon.png" alt="Zalo" style="width:28px;height:28px;vertical-align:middle;margin-right:8px;">
+        Kết nối Zalo...
+    </a>
 
-<script>
-    // filepath: c:\Users\admin\Documents\GitHub\test\NhaXe-Project\html\index.html
-    // ...existing code...
-    document.addEventListener('DOMContentLoaded', function() {
-        const menuToggle = document.querySelector('.menu-toggle');
-        const navUl = document.querySelector('.header-navigation ul');
-        if (menuToggle && navUl) {
-            menuToggle.addEventListener('click', function() {
-                navUl.classList.toggle('active');
-                menuToggle.classList.toggle('open');
+    <!-- 🚗 Nút đặt xe nổi -->
+    <button id="openBookingForm" class="booking-btn">📝 Đặt xe ngay</button>
+
+    <!-- 🔹 Popup Form -->
+    <div id="bookingPopup" class="popup">
+        <div class="popup-content">
+            <span id="closePopup" class="close-btn">&times;</span>
+            <h2>ĐẶT XE NGAY TẠI ĐÂY</h2>
+
+            <form id="bookingForm">
+                <label>Điểm đón:</label>
+                <input type="text" name="user_pickup" required placeholder="Nhập điểm đón">
+
+                <label>Điểm đến:</label>
+                <input type="text" name="user_dropoff" required placeholder="Nhập điểm đến">
+
+                <div class="trip-type">
+                    <label><input type="radio" name="user_type" value="Taxi"> Taxi</label>
+                    <label><input type="radio" name="user_type" value="Bao xe"> Bao xe</label>
+                    <label><input type="radio" name="user_type" value="1 chiều"> 1 chiều</label>
+                    <label><input type="radio" name="user_type" value="2 chiều"> 2 chiều</label>
+                </div>
+
+                <label>Họ và tên:</label>
+                <input type="text" name="user_name" required placeholder="Ví dụ: Nguyễn Văn A">
+
+                <label>Số điện thoại:</label>
+                <input type="tel" name="user_phone" required placeholder="Ví dụ: 0976xxxxxxx">
+
+                <label>Tùy chọn xe:</label>
+                <input type="text" name="user_vehicle" placeholder="Ví dụ: xe 4 chỗ, 7 chỗ...">
+
+                <label>Ngày và giờ đón:</label>
+                <input type="text" name="user_datetime" placeholder="Ví dụ: 8h00 sáng mai">
+
+                <button type="submit" class="submit-btn">🚗 Gửi đơn đặt xe</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- 🔧 Script -->
+    <!-- ✅ EmailJS + Popup Script -->
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script>
+        (function () {
+            emailjs.init("g4aagM_muCBtyTQF9"); // 🔑 Public Key của bạn
+        })();
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const openBtn = document.getElementById("openBookingForm");
+            const popup = document.getElementById("bookingPopup");
+            const closeBtn = document.getElementById("closePopup");
+            const form = document.getElementById("bookingForm");
+
+            // --- Mở/đóng popup ---
+            openBtn.onclick = () => popup.style.display = "block";
+            closeBtn.onclick = () => popup.style.display = "none";
+            window.onclick = (e) => { if (e.target == popup) popup.style.display = "none"; };
+
+            // --- Gửi form qua EmailJS ---
+            // --- Gửi form qua EmailJS ---
+            form.addEventListener("submit", function (event) {
+                event.preventDefault();
+
+                emailjs.sendForm("service_minhchau", "template_x45d7b7", this)
+                    .then(() => {
+                        Swal.fire({
+                            icon: "success",
+                            title: "Đặt xe thành công!",
+                            text: "Chúng tôi sẽ liên hệ sớm nhất.",
+                            confirmButtonText: "OK",
+                            confirmButtonColor: "#3085d6"
+                        });
+                        popup.style.display = "none";
+                        form.reset();
+                    })
+                    .catch((err) => {
+                        console.error("Lỗi gửi mail:", err);
+                        Swal.fire({
+                            icon: "error",
+                            title: "Gửi thất bại!",
+                            text: "Vui lòng thử lại sau.",
+                            confirmButtonText: "OK",
+                            confirmButtonColor: "#d33"
+                        });
+                    });
             });
-        }
-        // Close menu on outside click (mobile)
-        document.addEventListener('click', function(e) {
-            if (!menuToggle.contains(e.target) && !navUl.contains(e.target)) {
-                navUl.classList.remove('active');
-                menuToggle.classList.remove('open');
-            }
+
         });
-    });
-    // ...existing code...
-</script>
+    </script>
+
+
+
+
+    <script>
+        // filepath: c:\Users\admin\Documents\GitHub\test\NhaXe-Project\html\index.html
+        // ...existing code...
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navUl = document.querySelector('.header-navigation ul');
+            if (menuToggle && navUl) {
+                menuToggle.addEventListener('click', function () {
+                    navUl.classList.toggle('active');
+                    menuToggle.classList.toggle('open');
+                });
+            }
+            // Close menu on outside click (mobile)
+            document.addEventListener('click', function (e) {
+                if (!menuToggle.contains(e.target) && !navUl.contains(e.target)) {
+                    navUl.classList.remove('active');
+                    menuToggle.classList.remove('open');
+                }
+            });
+        });
+        // ...existing code...
+    </script>
+
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
 </body>
+
 <script>
+    // --- Form popup ---
+    document.addEventListener("DOMContentLoaded", function () {
+        const openBtn = document.getElementById("openBookingForm");
+        const bookingPopup = document.getElementById("bookingPopup");
+        const closeBtn = document.getElementById("closePopup");
+
+        if (openBtn && bookingPopup && closeBtn) {
+            openBtn.onclick = () => bookingPopup.style.display = "block";
+            closeBtn.onclick = () => bookingPopup.style.display = "none";
+
+            window.onclick = (event) => {
+                if (event.target === bookingPopup) bookingPopup.style.display = "none";
+            };
+        }
+    });
+
+    // --- Chuyển trang + Gọi điện ---
     function navigateTo(page) {
         window.location.href = page;
     }
-    function clickToCall() {
-    window.location.href = "tel:0976557789";
+
+    function ClickToCall() {
+        window.location.href = "tel:0976557790";
     }
 </script>
+
+
 
 </html>
